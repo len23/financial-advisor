@@ -1,11 +1,12 @@
 import Table from 'react-bootstrap/Table'
-import {dataRisk} from './data-risk';
+import { dataRisk } from './data-risk';
+import { useState } from 'react';
 
 export default function TableRisk(props) {
 
- const dataTable = dataRisk.map(data => {
+ const dataTable = dataRisk.map((data, index) => {
   return (
-   <tr>
+   <tr key={index} className={props.selectedIndex === index ? `bg-warning` : ``}>
     <td>{data.risk}</td>
     <td>{data.bonds}</td>
     <td>{data.largeCap}</td>
