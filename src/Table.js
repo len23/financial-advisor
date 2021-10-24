@@ -1,21 +1,13 @@
 import Table from 'react-bootstrap/Table'
 import { dataRisk } from './data-risk';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 export default function TableRisk(props) {
 
- const dataTable = dataRisk.map((data, index) => {
-  return (
-   <tr key={index} className={props.selectedIndex === index ? `bg-warning` : ``}>
-    <td>{data.risk}</td>
-    <td>{data.bonds}</td>
-    <td>{data.largeCap}</td>
-    <td>{data.MidCap}</td>
-    <td>{data.Foreign}</td>
-    <td>{data.SmallCap}</td>
-   </tr>
-   ) 
- })
+ useEffect(() => {
+  let findSelected = dataRisk.find((d,i) => i === props.selectedIndex);
+  props.handleSelectedData(findSelected);
+ }, [props.selectedIndex])
 
  return (
   <Table striped bordered hover>
@@ -30,7 +22,18 @@ export default function TableRisk(props) {
     </tr>
    </thead>
    <tbody>
-    {dataTable}
+    {dataRisk.map((data, index) => {
+     return (
+      <tr key={index} className={props.selectedIndex === index ? `bg-warning` : ``}>
+       <td>{data.risk}</td>
+       <td>{data.bonds}</td>
+       <td>{data.largeCap}</td>
+       <td>{data.MidCap}</td>
+       <td>{data.Foreign}</td>
+       <td>{data.SmallCap}</td>
+      </tr>
+      ) 
+    })}
    </tbody>
   </Table>)
 }
