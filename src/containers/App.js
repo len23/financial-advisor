@@ -1,6 +1,5 @@
 import Container from 'react-bootstrap/Container'
-import './App.css';
-import Header from './Header';
+import Header from '../componentes/Header';
 import RiskSelection from './RiskSelection';
 
 function App() {

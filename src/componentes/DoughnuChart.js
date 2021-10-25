@@ -1,19 +1,11 @@
 import { Doughnut } from 'react-chartjs-2';
-import { useState, useEffect } from 'react';
-
 
 const labels = ['Bounds %', 'Large Cap %', 'Mid Cap %', 'Foreign %', 'Small Cap %'];
 
 export default function DoughnutChart(props) {
 
-  const [chartData, setChartData] = useState({});
+  const chartData =  {
 
-  useEffect(() => {
-    setChartData(changeData());
-  }, [props.chartData]);
-
-  const changeData = () => {
-    return {
       labels: labels.filter((d, i) => {if(props.chartData[i]) return props.chartData[i]} ),
       datasets: [
         {
@@ -36,11 +28,11 @@ export default function DoughnutChart(props) {
           borderWidth: 1,
         },
       ],
-    };
+ 
   }
 
   return (
-    <div>
+    <div style={{ width: "30rem" }} className="mx-auto">
       <div className='header'>
         <h1 className='title'>Doughnut Chart</h1>
         <div className='links'>

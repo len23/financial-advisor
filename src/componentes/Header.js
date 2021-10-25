@@ -1,5 +1,5 @@
-import home from './home.svg'
-import './Header.css'
+import home from '../assets/home.svg';
+import './Header.css';
 
 export default function Header() {
 
