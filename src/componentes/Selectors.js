@@ -1,6 +1,7 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
+import { Link } from 'react-router-dom';
 
 export default function Selectors(props) {
  return (
@@ -19,13 +20,13 @@ export default function Selectors(props) {
       {index + 1}</button>);
     })
     }
-    <button
+    <Link
      className="bg-light border p-4 mb-4"
-     style={{ position: 'absolute', right: '-18%' }}
-     onClick={props.handleDataDisplay}
+     style={{ position: 'absolute', right: '-18%', textDecoration: 'none' }}
+     to='/recomendations'
     >
      Continue
-    </button>
+    </Link>
    </Stack>
   </div>
  )

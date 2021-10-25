@@ -27,6 +27,7 @@ export default function RiskSelection(props) {
       let dataArr = Object.values(data);
       dataArr.shift();
       setChartData(dataArr ? dataArr : []);
+      props.getRowSelectd(data);
     }
   }
 
@@ -47,7 +48,6 @@ export default function RiskSelection(props) {
         <Table
           dataRisk={dataRisk}
           selectedIndex={selectedIndex}
-          handleSelectedData={handleSelectedData}
         />
       }
       {showGraphic.show &&
