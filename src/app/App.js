@@ -5,9 +5,10 @@ import Recomendations from '../containers/Recomendations';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { useState } from 'react';
 
-
 function App() {
+
   const [selectedData, setSelectedData] = useState({});
+
   const handleSelection = (data) => {
     setSelectedData(data);
   }

@@ -6,11 +6,13 @@ import DoughnutChart from '../componentes/DoughnuChart';
 import Table from '../componentes/Table';
 import Selectors from '../componentes/Selectors';
 import SwitchButtton from '../componentes/SwitchButton';
+import { useHistory } from 'react-router-dom';
 
 export default function RiskSelection(props) {
   const [selectedIndex, setSelectedIndex] = useState(null);
   const [chartData, setChartData] = useState([]);
   const [showGraphic, setShowGraphic] = useState({ show: false, srcImg: pie });
+  const history = useHistory();
 
   useEffect(() => {
     let findSelected = dataRisk.find((d, i) => i === selectedIndex);
@@ -35,6 +37,11 @@ export default function RiskSelection(props) {
     setShowGraphic({ show: !showGraphic.show, srcImg: showGraphic.show ? pie : list });
   }
 
+  const handleContinue = () => {
+    let path = `recomendations`;
+    history.push(path);
+  }
+
   return (
     <div>
       <SwitchButtton handleDataDisplay={handleDataDisplay} src={showGraphic.srcImg} />
@@ -43,6 +50,7 @@ export default function RiskSelection(props) {
         handleDataDisplay={handleDataDisplay}
         handleSelection={handleSelection}
         selectedIndex={selectedIndex}
+        continue={handleContinue}
       />
       {!showGraphic.show &&
         <Table

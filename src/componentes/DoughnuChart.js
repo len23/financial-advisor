@@ -1,4 +1,5 @@
 import { Doughnut } from 'react-chartjs-2';
+import './DoughnuChart.css';
 
 const labels = ['Bounds %', 'Large Cap %', 'Mid Cap %', 'Foreign %', 'Small Cap %'];
 
@@ -32,17 +33,9 @@ export default function DoughnutChart(props) {
   }
 
   return (
-    <div style={{ width: "30rem" }} className="mx-auto">
-      <div className='header'>
-        <h1 className='title'>Doughnut Chart</h1>
-        <div className='links'>
-          <a
-            className='btn btn-gh'
-            href='https://github.com/reactchartjs/react-chartjs-2/blob/master/example/src/charts/Doughnut.js'
-          >
-            Github Source
-      </a>
-        </div>
+    <div className="mx-auto doughnut-container">
+      <div className='header my-5'>
+        <h1 className='title text-center'>Doughnut Chart</h1>
       </div>
       <Doughnut data={chartData} />
     </div>

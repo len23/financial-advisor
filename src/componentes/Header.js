@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import './Header.css';
 
 export default function Header() {
-
+//Review functional pprograming
  return (
   <header>
    <div className="py-3 bg-primary text-white">

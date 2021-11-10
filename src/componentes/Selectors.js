@@ -1,7 +1,7 @@
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Stack from 'react-bootstrap/Stack';
-import { Link } from 'react-router-dom';
+import './Selectors.css';
 
 export default function Selectors(props) {
  return (
@@ -11,7 +11,7 @@ export default function Selectors(props) {
     <Col>LOW</Col>
     <Col className="text-end">HIGH</Col>
    </Row>
-   <Stack style={{ position: 'relative' }} className="justify-content-between w-75 mx-auto" direction="horizontal">
+   <Stack className="stack-position justify-content-between w-75 mx-auto" direction="horizontal">
     {props.dataRisk.map((d, index) => {
      return (<button
       className={(props.selectedIndex === index ? `bg-warning` : `bg-light`) + ` border p-4 mb-4`}
@@ -20,13 +20,13 @@ export default function Selectors(props) {
       {index + 1}</button>);
     })
     }
-    <Link
-     className="bg-light border p-4 mb-4"
-     style={{ position: 'absolute', right: '-18%', textDecoration: 'none' }}
-     to='/recomendations'
+    <button
+     className="continue-button bg-light border p-4 mb-4"
+     onClick={props.continue}
+     disabled={props.selectedIndex === null}
     >
      Continue
-    </Link>
+    </button>
    </Stack>
   </div>
  )
