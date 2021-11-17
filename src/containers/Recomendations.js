@@ -9,8 +9,6 @@ import FormControl from 'react-bootstrap/FormControl';
 
 export default function Recomendations(props) {
 
-  const [showCaculation, setShowCalculation] = useState(false);
-
   const [values, setValues] = useState(() => {
     const newObj = { ...props.data };
     for (let i in newObj) {
@@ -66,8 +64,7 @@ export default function Recomendations(props) {
 
     setNewValues(newValuesTemp);
     setDifference(newDifferenceTemp);
-    setShowCalculation(true);
-
+    
   }
 
   return (

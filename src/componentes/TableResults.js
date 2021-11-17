@@ -18,7 +18,7 @@ export default function TableResults(props) {
     <td ><b>Differences</b></td>
       {Object.keys(props.differences).map((key, index) => {
         return (
-            <td key={index} >{props.differences[key]}</td>
+            <td key={index} >{props.differences[key] > 0 ? `+${props.differences[key]}`: props.differences[key]}</td>
         )
       })}
      </tr>
